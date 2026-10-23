@@ -1,0 +1,10 @@
+{
+  "name": "frame-launcher",
+  "version": "1.0.0",
+  "description": "Family home screen for our Samsung Frame. Hands off to the launcher server on the home LAN.",
+  "packageType": "app",
+  "appName": "Frame Home",
+  "appPath": "index.html",
+  "keys": ["ChannelUp", "ChannelDown"],
+  "license": "MIT"
+}

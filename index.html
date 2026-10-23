@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Frame Home</title>
+<style>
+  html,body{margin:0;height:100%;background:#070809;color:#8b9099;font:300 28px system-ui,sans-serif}
+  body{display:flex;align-items:center;justify-content:center;text-align:center}
+</style>
+</head>
+<body>
+<div id="msg">Starting…</div>
+<script>
+  // The real page lives on the home LAN so it can be changed without republishing this module.
+  var SERVER = "http://192.168.4.57:8790/";
+  function go() {
+    fetch(SERVER + "healthz", { mode: "no-cors", cache: "no-store" })
+      .then(function () { location.replace(SERVER); })
+      .catch(function () {
+        document.getElementById("msg").textContent = "Can't reach the launcher server at " + SERVER + " — retrying…";
+        setTimeout(go, 5000);
+      });
+  }
+  go();
+</script>
+</body>
+</html>
